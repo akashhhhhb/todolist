@@ -1,0 +1,45 @@
+
+<%-include("header")-%>
+    <div class="box" id="heading">
+        <h1><%= listtitle %></h1>
+    </div>
+
+    <div class="box" >
+        
+       <%    newlistitem.forEach(function(item){ %>
+                <form action="/delete" method="post"> 
+                    <div class="item">
+                        <input type="checkbox" onChange="this.form.submit()" name="checkbox" value="<%= item._id %>">
+                        <p> <%= item.name %></p>
+                    </div>
+                    <input type="hidden" name="listname" value = "<%= listtitle %>"></input>
+                </form>
+            
+          <% })%>
+
+
+            <form class="item"action="/" method="post">
+                <input type="text" name="newitem" placeholder="New Item" autocomplete="off">
+                <button type="submit" name="list" value = "<%= listtitle %>">+</button>
+            </form>
+    </div>
+    <%-include("footer")-%>
+   <!-- <% if(listtitle === "saturday"){ %>
+       <h1 style="color: purple">  <%= listtitle %></h1>
+    <%} else { %>
+        <h1 style="color: blue">  <%= listtitle %></h1>
+    <%}%> -->
+<!-- <li>buy foosd</li>
+        <li>eat foos</li> -->
+        <!-- <li><%= newlistitem%></li> -->
+        <!-- <%   for(var i=0; i<newlistitem.length; i++) {%>
+            <div class="item">
+                <input type="checkbox">
+                <p> <%= newlistitem[i].name %></p>
+            </div>   
+        <% } %> -->
+
+
+
+   
+    
